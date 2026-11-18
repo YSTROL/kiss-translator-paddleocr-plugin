@@ -1,6 +1,8 @@
-# PaddleOCR for Kiss Translator
+# 简约翻译 · PaddleOCR 接口插件
 
-Kiss Translator 的第三方 OCR 接口插件。它通过飞桨 AI Studio 的 PP-OCRv6 云端 API 识别图片里的文字和位置。Kiss Translator 可以把识别结果交给你已配置的翻译服务，用于截图和图片翻译。[Kiss Translator](https://github.com/fishjar/kiss-translator) · [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR)
+这是一个为简约翻译（Kiss Translator）接入 PaddleOCR 的外部接口插件。它可以调用飞桨 AI Studio 的 PP-OCRv6 云端 API，内置常用的结果下载域名，并将识别出的文字和坐标交给简约翻译。需要翻译时，简约翻译调用你配置的翻译 API 获取译文。
+
+[简约翻译](https://github.com/fishjar/kiss-translator) · [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR)
 
 ## 使用条件
 
@@ -11,7 +13,7 @@ Kiss Translator 的第三方 OCR 接口插件。它通过飞桨 AI Studio 的 PP
 ## 安装与配置
 
 1. 打开 Kiss Translator 的 **接口插件**。可从外部插件目录安装，也可输入本 GitHub 仓库的根地址，或导入 GitHub Releases 中的版本化 ZIP。
-2. 进入 **服务配置 → 添加 → 外部插件**，添加 **PP-OCRv6 文字识别**。填入自己的 **AI Studio Access Token** 并保存。
+2. 进入 **服务配置 → 添加 → 插件接口**，添加 **PP-OCRv6 文字识别**。填入自己的 **AI Studio Access Token** 并保存。
 3. 在 **基本设置 → 禁用Origin名单** 中另起一行，添加 `https://paddleocr.aistudio-app.com`。
 4. 在 **服务配置** 中用一张图片测试，再到 **图片翻译 → 文本识别服务（OCR / VLM）** 选择这项服务。
 
