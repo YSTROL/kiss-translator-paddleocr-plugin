@@ -4,18 +4,25 @@
 
 [简约翻译](https://github.com/fishjar/kiss-translator) · [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR)
 
+## 获取 PaddleOCR API 令牌
+
+1. 打开飞桨 AI Studio 的 PaddleOCR 页面，登录自己的 AI Studio 账号。首次使用时，可以先注册账号。[打开 PaddleOCR 页面](https://aistudio.baidu.com/paddleocr)
+2. 登录后，打开 PaddleOCR 任务页，在「API 调用示例」里找到 `TOKEN`，复制引号中的令牌。也可以直接从 AI Studio 的 Access Token 页面获取。[PaddleOCR 任务页](https://aistudio.baidu.com/paddleocr/task) · [AI Studio Access Token](https://aistudio.baidu.com/account/accessToken)
+3. 安装插件后，在服务配置的 **AI Studio Access Token** 栏粘贴令牌本身，去掉引号和 `Bearer` 前缀。
+
+> 飞桨 AI Studio 公布的**每日解析配额**为**每个账号、每个模型 20,000 页**。超出配额后，API 会返回 HTTP 429。[飞桨 API 配额规则](https://ai.baidu.com/ai-doc/AISTUDIO/Xmjclapam)
+
 ## 使用条件
 
 - 最低版本为 Kiss Translator 浏览器扩展 2.2.5。本插件使用接口插件 API 1。
-- 一个有效的 AI Studio Access Token。[令牌管理](https://aistudio.baidu.com/account/accessToken)
 - 插件接受 PNG、JPEG 和 WebP 图片。扩展限制每次上传的请求正文为 8 MiB，图片和随附的表单字段合计都要计入。接近上限时可先缩小图片。[插件资源预算](https://github.com/fishjar/kiss-translator-plugins/blob/main/docs/plugin-development-guide.md#84-执行资源与预算)
 
 ## 安装与配置
 
-1. 打开 Kiss Translator 的 **接口插件**。可从外部插件目录安装，也可输入本 GitHub 仓库的根地址，或导入 GitHub Releases 中的版本化 ZIP。
-2. 进入 **服务配置 → 添加 → 插件接口**，添加 **PP-OCRv6 文字识别**。填入自己的 **AI Studio Access Token** 并保存。
+1. 打开简约翻译设置里的 **接口插件**。在 **GitHub 项目或 HTTPS ZIP 地址** 输入 `https://github.com/YSTROL/kiss-translator-paddleocr-plugin` 并安装。也可以从外部插件目录安装，或下载 ZIP 后导入。[插件发布页](https://github.com/YSTROL/kiss-translator-paddleocr-plugin/releases/latest)
+2. 进入 **服务配置 → 添加 → 插件接口**，添加 **PP-OCRv6 文字识别**。将刚复制的令牌填入 **AI Studio Access Token** 并保存。
 3. 在 **基本设置 → 禁用Origin名单** 中另起一行，添加 `https://paddleocr.aistudio-app.com`。
-4. 在 **服务配置** 中用一张图片测试，再到 **图片翻译 → 文本识别服务（OCR / VLM）** 选择这项服务。
+4. 在 **服务配置** 中用一张有文字的图片测试。看到识别结果后，到 **图片翻译 → 文本识别服务（OCR / VLM）** 选择 **PP-OCRv6 文字识别**。
 
 ### 配置项
 
