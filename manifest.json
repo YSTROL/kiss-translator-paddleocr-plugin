@@ -1,0 +1,78 @@
+{
+  "id": "paddleocr-ai-studio",
+  "name": "飞桨 AI Studio OCR",
+  "description": "在 Kiss Translator 中使用 PaddleOCR PP-OCRv6 云端文字识别。",
+  "version": "1.0.8",
+  "apiVersion": 1,
+  "minHostVersion": "2.2.5",
+  "permissions": {
+    "network": [
+      "https://paddleocr.aistudio-app.com",
+      "https://paddleocr-store.bj.bcebos.com",
+      "https://paddleocr-store-1.bj.bcebos.com",
+      "https://paddleocr-store-2.bj.bcebos.com",
+      "https://paddleocr-store-3.bj.bcebos.com",
+      "https://paddleocr-store-4.bj.bcebos.com",
+      "https://paddleocr-store-5.bj.bcebos.com",
+      "https://paddleocr-store-6.bj.bcebos.com",
+      "https://paddleocr-store-7.bj.bcebos.com",
+      "https://paddleocr-store-8.bj.bcebos.com",
+      "https://paddleocr-store-9.bj.bcebos.com"
+    ],
+    "endpointFields": [
+      "resultOrigin"
+    ]
+  },
+  "services": [
+    {
+      "id": "paddleocr-v6",
+      "name": "PP-OCRv6 文字识别",
+      "implementation": {
+        "kind": "script",
+        "entry": "recognize-text.js"
+      },
+      "capabilities": {
+        "recognizeText": {
+          "handler": "recognizeText",
+          "inputModalities": [
+            "image"
+          ],
+          "outputModes": [
+            "complete"
+          ],
+          "coordinates": true,
+          "taskModes": [
+            "doc"
+          ]
+        }
+      },
+      "settings": [
+        {
+          "key": "apiKey",
+          "label": "AI Studio Access Token",
+          "type": "password",
+          "required": true
+        },
+        {
+          "key": "resultOrigin",
+          "label": "其他结果下载域名（可选）",
+          "type": "text"
+        },
+        {
+          "key": "model",
+          "label": "识别模型",
+          "type": "select",
+          "defaultValue": "PaddleOCR",
+          "options": [
+            {
+              "label": "PaddleOCR（PP-OCRv6）",
+              "value": "PaddleOCR"
+            }
+          ]
+        }
+      ],
+      "modelField": "model"
+    }
+  ],
+  "icon": "assets/logo.png"
+}
